@@ -5,13 +5,12 @@ const progressBar = player.querySelector('.progress__filled');
 const toggle = player.querySelector('.toggle');
 const skipButtons = player.querySelectorAll('[data-skip]');
 const ranges = player.querySelectorAll('.player__slider');
-
+// const fullScreen = player.querySelector('.fullscreen');
 /* Build out functions */
 function togglePlay() {
   const method = video.paused ? 'play' : 'pause';
   video[method]();
 }
-
 function updateButton() {
   const icon = this.paused ? '►' : '❚ ❚';
   console.log(icon);
@@ -35,6 +34,12 @@ function scrub(e) {
   const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
   video.currentTime = scrubTime;
 }
+function goFullScreen() {
+player.classList.toggle('fullscreen');
+console.log("hej");
+}
+
+fullScreen.addEventListener('click', goFullScreen);
 
 /* Hook up the event listners */
 video.addEventListener('click', togglePlay);
